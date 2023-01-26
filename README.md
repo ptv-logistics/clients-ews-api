@@ -4,7 +4,7 @@ Clients for the EWS Road Distance API version 1.3.0
 Text
 Using client classes makes it easier and more convenient to integrate the API into an existing programming environment. We provide here clients for Java, C# and TypeScript. Alternatively you can generate the clients yourself by using this [tutorial](https://developer.myptv.com/en/resources/tutorials/general/how-generate-clients-ptv-developer-apis).
 
-Please refer to our [Routing API](https://developer.myptv.com/en/documentation/guide-ews-road-distance-api) documentation. 
+Please refer to our [EWS Road Distance API](https://developer.myptv.com/en/documentation/guide-ews-road-distance-api) documentation. 
 
 Language depending information:
 * **DotNet:** Please add the following nuget packages to your client project
