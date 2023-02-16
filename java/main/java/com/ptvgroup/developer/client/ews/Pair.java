@@ -13,7 +13,7 @@
 
 package com.ptvgroup.developer.client.ews;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T07:28:23.688857Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:38:32.412071Z[Etc/UTC]")
 public class Pair {
     private String name = "";
     private String value = "";
