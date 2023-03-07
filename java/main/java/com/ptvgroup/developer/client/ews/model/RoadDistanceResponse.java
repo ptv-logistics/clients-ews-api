@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RoadDistanceResponse.JSON_PROPERTY_DATA_VERSION,
   RoadDistanceResponse.JSON_PROPERTY_REGION
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:38:32.412071Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-03-07T15:05:32.711837Z[Etc/UTC]")
 public class RoadDistanceResponse {
   public static final String JSON_PROPERTY_DISTANCE = "distance";
   private Integer distance;

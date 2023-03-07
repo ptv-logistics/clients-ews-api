@@ -41,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RequestLocation.JSON_PROPERTY_LOCALITY,
   RequestLocation.JSON_PROPERTY_TYPE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T12:38:32.412071Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-03-07T15:05:32.711837Z[Etc/UTC]")
 public class RequestLocation {
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private JsonNullable<String> country = JsonNullable.<String>undefined();
