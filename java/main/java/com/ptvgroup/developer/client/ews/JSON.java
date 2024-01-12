@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-03-07T15:05:32.711837Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-12T09:30:19.810684Z[Etc/UTC]")
 public class JSON {
   private ObjectMapper mapper;
 
