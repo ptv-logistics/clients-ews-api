@@ -17,7 +17,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -27,17 +26,19 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.ews.model.SuggestedLocation;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import com.ptvgroup.developer.client.ews.ApiClient;
 /**
  * SuggestionsResponse
  */
 @JsonPropertyOrder({
   SuggestionsResponse.JSON_PROPERTY_SUGGESTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-12T09:30:19.810684Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T06:50:19.107527760Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class SuggestionsResponse {
   public static final String JSON_PROPERTY_SUGGESTIONS = "suggestions";
   private List<SuggestedLocation> suggestions = new ArrayList<>();
@@ -58,14 +59,13 @@ public class SuggestionsResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of suggested locations sorted by **country**, **postalCode** and **locality**. Input localities matching a city name will be returned before those matching a subdistrict name.
    * @return suggestions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUGGESTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SuggestedLocation> getSuggestions() {
     return suggestions;
   }

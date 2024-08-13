@@ -17,7 +17,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,9 +25,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.ews.model.ResponseLocation;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import com.ptvgroup.developer.client.ews.ApiClient;
 /**
  * RoadDistanceResponse
  */
@@ -40,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RoadDistanceResponse.JSON_PROPERTY_DATA_VERSION,
   RoadDistanceResponse.JSON_PROPERTY_REGION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-12T09:30:19.810684Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T06:50:19.107527760Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class RoadDistanceResponse {
   public static final String JSON_PROPERTY_DISTANCE = "distance";
   private Integer distance;
@@ -68,15 +69,14 @@ public class RoadDistanceResponse {
     return this;
   }
 
-   /**
+  /**
    * The distance of the relation [m].
    * minimum: 0
    * @return distance
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DISTANCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Integer getDistance() {
     return distance;
   }
@@ -94,15 +94,14 @@ public class RoadDistanceResponse {
     return this;
   }
 
-   /**
+  /**
    * The distance of toll roads of the relation [m], if requested.
    * minimum: 0
    * @return tollDistance
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOLL_DISTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getTollDistance() {
     return tollDistance;
   }
@@ -120,14 +119,13 @@ public class RoadDistanceResponse {
     return this;
   }
 
-   /**
+  /**
    * Get start
    * @return start
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ResponseLocation getStart() {
     return start;
   }
@@ -145,14 +143,13 @@ public class RoadDistanceResponse {
     return this;
   }
 
-   /**
+  /**
    * Get destination
    * @return destination
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DESTINATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ResponseLocation getDestination() {
     return destination;
   }
@@ -170,14 +167,13 @@ public class RoadDistanceResponse {
     return this;
   }
 
-   /**
+  /**
    * The version of the data by year.
    * @return dataVersion
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATA_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getDataVersion() {
     return dataVersion;
   }
@@ -195,14 +191,13 @@ public class RoadDistanceResponse {
     return this;
   }
 
-   /**
+  /**
    * The region which was searched for the reference locations.
    * @return region
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getRegion() {
     return region;
   }
@@ -299,12 +294,12 @@ public class RoadDistanceResponse {
 
     // add `distance` to the URL query string
     if (getDistance() != null) {
-      joiner.add(String.format("%sdistance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDistance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdistance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDistance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `tollDistance` to the URL query string
     if (getTollDistance() != null) {
-      joiner.add(String.format("%stollDistance%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTollDistance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stollDistance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTollDistance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `start` to the URL query string
@@ -319,12 +314,12 @@ public class RoadDistanceResponse {
 
     // add `dataVersion` to the URL query string
     if (getDataVersion() != null) {
-      joiner.add(String.format("%sdataVersion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDataVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sdataVersion%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDataVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `region` to the URL query string
     if (getRegion() != null) {
-      joiner.add(String.format("%sregion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRegion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%sregion%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRegion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

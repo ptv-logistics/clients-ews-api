@@ -17,7 +17,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.StringJoiner;
 import java.util.Objects;
-import java.util.Arrays;
 import java.util.Map;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,9 +25,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.ptvgroup.developer.client.ews.model.LocationType;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
+import com.ptvgroup.developer.client.ews.ApiClient;
 /**
  * The complete location used for start or destination of the relation.
  */
@@ -40,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ResponseLocation.JSON_PROPERTY_LONGITUDE,
   ResponseLocation.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-12T09:30:19.810684Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T06:50:19.107527760Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class ResponseLocation {
   public static final String JSON_PROPERTY_COUNTRY = "country";
   private String country;
@@ -68,14 +69,13 @@ public class ResponseLocation {
     return this;
   }
 
-   /**
+  /**
    * The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
    * @return country
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getCountry() {
     return country;
   }
@@ -93,14 +93,13 @@ public class ResponseLocation {
     return this;
   }
 
-   /**
+  /**
    * The postal code, or zip-code, which is used by a postal authority of a country.
    * @return postalCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPostalCode() {
     return postalCode;
   }
@@ -118,14 +117,13 @@ public class ResponseLocation {
     return this;
   }
 
-   /**
+  /**
    * The name of the city or district in the language spoken in that country or region, always transliterated to Latin.
    * @return locality
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LOCALITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getLocality() {
     return locality;
   }
@@ -143,16 +141,15 @@ public class ResponseLocation {
     return this;
   }
 
-   /**
+  /**
    * The latitude in degrees (WGS84/EPSG:4326) from south to north, if requested.
    * minimum: -90
    * maximum: 90
    * @return latitude
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LATITUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getLatitude() {
     return latitude;
   }
@@ -170,16 +167,15 @@ public class ResponseLocation {
     return this;
   }
 
-   /**
+  /**
    * The longitude in degrees (WGS84/EPSG:4326) from west to east, if requested.
    * minimum: -180
    * maximum: 180
    * @return longitude
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LONGITUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getLongitude() {
     return longitude;
   }
@@ -197,14 +193,13 @@ public class ResponseLocation {
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LocationType getType() {
     return type;
   }
@@ -301,32 +296,32 @@ public class ResponseLocation {
 
     // add `country` to the URL query string
     if (getCountry() != null) {
-      joiner.add(String.format("%scountry%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCountry()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%scountry%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCountry()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `postalCode` to the URL query string
     if (getPostalCode() != null) {
-      joiner.add(String.format("%spostalCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPostalCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%spostalCode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPostalCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `locality` to the URL query string
     if (getLocality() != null) {
-      joiner.add(String.format("%slocality%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLocality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slocality%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLocality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `latitude` to the URL query string
     if (getLatitude() != null) {
-      joiner.add(String.format("%slatitude%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLatitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slatitude%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLatitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `longitude` to the URL query string
     if (getLongitude() != null) {
-      joiner.add(String.format("%slongitude%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLongitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%slongitude%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLongitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
     return joiner.toString();

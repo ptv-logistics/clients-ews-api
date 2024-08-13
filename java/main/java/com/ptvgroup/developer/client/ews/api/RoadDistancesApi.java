@@ -51,7 +51,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-12T09:30:19.810684Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T06:50:19.107527760Z[Etc/UTC]", comments = "Generator version: 7.7.0")
 public class RoadDistancesApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -95,7 +95,7 @@ public class RoadDistancesApi {
    * @param destination The destination of the relation. (optional)
    * @param region  (optional, default to BEST_QUALITY)
    * @param dataVersion  (optional, default to LATEST)
-   * @param results Comma-separated list that defines which results besides the distance will be returned. * &#x60;COORDINATES&#x60;     Response includes latitude and longitude of the reference locations of start and destination. * &#x60;TOLL_DISTANCE&#x60;     Response includes the distance of toll roads of the relation. (optional
+   * @param results Comma-separated list that defines which results besides the distance will be returned. * &#x60;COORDINATES&#x60;     Response includes latitude and longitude of the reference locations of start and destination. * &#x60;TOLL_DISTANCE&#x60;     Response includes the distance of toll roads of the relation. (optional)
    * @return RoadDistanceResponse
    * @throws ApiException if fails to make API call
    */
@@ -111,7 +111,7 @@ public class RoadDistancesApi {
    * @param destination The destination of the relation. (optional)
    * @param region  (optional, default to BEST_QUALITY)
    * @param dataVersion  (optional, default to LATEST)
-   * @param results Comma-separated list that defines which results besides the distance will be returned. * &#x60;COORDINATES&#x60;     Response includes latitude and longitude of the reference locations of start and destination. * &#x60;TOLL_DISTANCE&#x60;     Response includes the distance of toll roads of the relation. (optional
+   * @param results Comma-separated list that defines which results besides the distance will be returned. * &#x60;COORDINATES&#x60;     Response includes latitude and longitude of the reference locations of start and destination. * &#x60;TOLL_DISTANCE&#x60;     Response includes the distance of toll roads of the relation. (optional)
    * @return ApiResponse&lt;RoadDistanceResponse&gt;
    * @throws ApiException if fails to make API call
    */
@@ -156,11 +156,17 @@ public class RoadDistancesApi {
     String localVarQueryParameterBaseName;
     localVarQueryParameterBaseName = "start";
     if (start != null) {
-      localVarQueryStringJoiner.add(start.toUrlQueryString("start"));
+      String queryString = start.toUrlQueryString("start");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "destination";
     if (destination != null) {
-      localVarQueryStringJoiner.add(destination.toUrlQueryString("destination"));
+      String queryString = destination.toUrlQueryString("destination");
+      if (!queryString.isBlank()) {
+        localVarQueryStringJoiner.add(queryString);
+      }
     }
     localVarQueryParameterBaseName = "region";
     localVarQueryParams.addAll(ApiClient.parameterToPairs("region", region));
@@ -191,6 +197,7 @@ public class RoadDistancesApi {
     }
     return localVarRequestBuilder;
   }
+
   /**
    * 
    * Gets suggestions for a location. Provide at least two characters in **postalCode** or **locality** to obtain results.
@@ -298,4 +305,5 @@ public class RoadDistancesApi {
     }
     return localVarRequestBuilder;
   }
+
 }
