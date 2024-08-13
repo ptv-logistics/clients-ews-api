@@ -15,6 +15,7 @@
 
 /**
  * The region to search for the reference locations. See the concept on [EWS](./concepts/ews) for more information.
+ * 
  * @export
  */
 export const RegionType = {
@@ -24,6 +25,17 @@ export const RegionType = {
 } as const;
 export type RegionType = typeof RegionType[keyof typeof RegionType];
 
+
+export function instanceOfRegionType(value: any): boolean {
+    for (const key in RegionType) {
+        if (Object.prototype.hasOwnProperty.call(RegionType, key)) {
+            if ((RegionType as Record<string, RegionType>)[key] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 export function RegionTypeFromJSON(json: any): RegionType {
     return RegionTypeFromJSONTyped(json, false);

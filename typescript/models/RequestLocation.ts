@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 import type { LocationType } from './LocationType';
 import {
     LocationTypeFromJSON,
@@ -57,10 +57,8 @@ export interface RequestLocation {
 /**
  * Check if a given object implements the RequestLocation interface.
  */
-export function instanceOfRequestLocation(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+export function instanceOfRequestLocation(value: object): value is RequestLocation {
+    return true;
 }
 
 export function RequestLocationFromJSON(json: any): RequestLocation {
@@ -68,31 +66,28 @@ export function RequestLocationFromJSON(json: any): RequestLocation {
 }
 
 export function RequestLocationFromJSONTyped(json: any, ignoreDiscriminator: boolean): RequestLocation {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'country': !exists(json, 'country') ? undefined : json['country'],
-        'postalCode': !exists(json, 'postalCode') ? undefined : json['postalCode'],
-        'locality': !exists(json, 'locality') ? undefined : json['locality'],
-        'type': !exists(json, 'type') ? undefined : LocationTypeFromJSON(json['type']),
+        'country': json['country'] == null ? undefined : json['country'],
+        'postalCode': json['postalCode'] == null ? undefined : json['postalCode'],
+        'locality': json['locality'] == null ? undefined : json['locality'],
+        'type': json['type'] == null ? undefined : LocationTypeFromJSON(json['type']),
     };
 }
 
 export function RequestLocationToJSON(value?: RequestLocation | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'country': value.country,
-        'postalCode': value.postalCode,
-        'locality': value.locality,
-        'type': LocationTypeToJSON(value.type),
+        'country': value['country'],
+        'postalCode': value['postalCode'],
+        'locality': value['locality'],
+        'type': LocationTypeToJSON(value['type']),
     };
 }
 

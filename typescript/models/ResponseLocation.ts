@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 import type { LocationType } from './LocationType';
 import {
     LocationTypeFromJSON,
@@ -67,13 +67,11 @@ export interface ResponseLocation {
 /**
  * Check if a given object implements the ResponseLocation interface.
  */
-export function instanceOfResponseLocation(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "country" in value;
-    isInstance = isInstance && "locality" in value;
-    isInstance = isInstance && "type" in value;
-
-    return isInstance;
+export function instanceOfResponseLocation(value: object): value is ResponseLocation {
+    if (!('country' in value) || value['country'] === undefined) return false;
+    if (!('locality' in value) || value['locality'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
+    return true;
 }
 
 export function ResponseLocationFromJSON(json: any): ResponseLocation {
@@ -81,35 +79,32 @@ export function ResponseLocationFromJSON(json: any): ResponseLocation {
 }
 
 export function ResponseLocationFromJSONTyped(json: any, ignoreDiscriminator: boolean): ResponseLocation {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'country': json['country'],
-        'postalCode': !exists(json, 'postalCode') ? undefined : json['postalCode'],
+        'postalCode': json['postalCode'] == null ? undefined : json['postalCode'],
         'locality': json['locality'],
-        'latitude': !exists(json, 'latitude') ? undefined : json['latitude'],
-        'longitude': !exists(json, 'longitude') ? undefined : json['longitude'],
+        'latitude': json['latitude'] == null ? undefined : json['latitude'],
+        'longitude': json['longitude'] == null ? undefined : json['longitude'],
         'type': LocationTypeFromJSON(json['type']),
     };
 }
 
 export function ResponseLocationToJSON(value?: ResponseLocation | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'country': value.country,
-        'postalCode': value.postalCode,
-        'locality': value.locality,
-        'latitude': value.latitude,
-        'longitude': value.longitude,
-        'type': LocationTypeToJSON(value.type),
+        'country': value['country'],
+        'postalCode': value['postalCode'],
+        'locality': value['locality'],
+        'latitude': value['latitude'],
+        'longitude': value['longitude'],
+        'type': LocationTypeToJSON(value['type']),
     };
 }
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 import type { ResponseLocation } from './ResponseLocation';
 import {
     ResponseLocationFromJSON,
@@ -67,15 +67,13 @@ export interface RoadDistanceResponse {
 /**
  * Check if a given object implements the RoadDistanceResponse interface.
  */
-export function instanceOfRoadDistanceResponse(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "distance" in value;
-    isInstance = isInstance && "start" in value;
-    isInstance = isInstance && "destination" in value;
-    isInstance = isInstance && "dataVersion" in value;
-    isInstance = isInstance && "region" in value;
-
-    return isInstance;
+export function instanceOfRoadDistanceResponse(value: object): value is RoadDistanceResponse {
+    if (!('distance' in value) || value['distance'] === undefined) return false;
+    if (!('start' in value) || value['start'] === undefined) return false;
+    if (!('destination' in value) || value['destination'] === undefined) return false;
+    if (!('dataVersion' in value) || value['dataVersion'] === undefined) return false;
+    if (!('region' in value) || value['region'] === undefined) return false;
+    return true;
 }
 
 export function RoadDistanceResponseFromJSON(json: any): RoadDistanceResponse {
@@ -83,13 +81,13 @@ export function RoadDistanceResponseFromJSON(json: any): RoadDistanceResponse {
 }
 
 export function RoadDistanceResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): RoadDistanceResponse {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'distance': json['distance'],
-        'tollDistance': !exists(json, 'tollDistance') ? undefined : json['tollDistance'],
+        'tollDistance': json['tollDistance'] == null ? undefined : json['tollDistance'],
         'start': ResponseLocationFromJSON(json['start']),
         'destination': ResponseLocationFromJSON(json['destination']),
         'dataVersion': json['dataVersion'],
@@ -98,20 +96,17 @@ export function RoadDistanceResponseFromJSONTyped(json: any, ignoreDiscriminator
 }
 
 export function RoadDistanceResponseToJSON(value?: RoadDistanceResponse | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'distance': value.distance,
-        'tollDistance': value.tollDistance,
-        'start': ResponseLocationToJSON(value.start),
-        'destination': ResponseLocationToJSON(value.destination),
-        'dataVersion': value.dataVersion,
-        'region': value.region,
+        'distance': value['distance'],
+        'tollDistance': value['tollDistance'],
+        'start': ResponseLocationToJSON(value['start']),
+        'destination': ResponseLocationToJSON(value['destination']),
+        'dataVersion': value['dataVersion'],
+        'region': value['region'],
     };
 }
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 import type { SuggestedLocation } from './SuggestedLocation';
 import {
     SuggestedLocationFromJSON,
@@ -38,10 +38,8 @@ export interface SuggestionsResponse {
 /**
  * Check if a given object implements the SuggestionsResponse interface.
  */
-export function instanceOfSuggestionsResponse(value: object): boolean {
-    let isInstance = true;
-
-    return isInstance;
+export function instanceOfSuggestionsResponse(value: object): value is SuggestionsResponse {
+    return true;
 }
 
 export function SuggestionsResponseFromJSON(json: any): SuggestionsResponse {
@@ -49,25 +47,22 @@ export function SuggestionsResponseFromJSON(json: any): SuggestionsResponse {
 }
 
 export function SuggestionsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): SuggestionsResponse {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'suggestions': !exists(json, 'suggestions') ? undefined : ((json['suggestions'] as Array<any>).map(SuggestedLocationFromJSON)),
+        'suggestions': json['suggestions'] == null ? undefined : ((json['suggestions'] as Array<any>).map(SuggestedLocationFromJSON)),
     };
 }
 
 export function SuggestionsResponseToJSON(value?: SuggestionsResponse | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'suggestions': value.suggestions === undefined ? undefined : ((value.suggestions as Array<any>).map(SuggestedLocationToJSON)),
+        'suggestions': value['suggestions'] == null ? undefined : ((value['suggestions'] as Array<any>).map(SuggestedLocationToJSON)),
     };
 }
 

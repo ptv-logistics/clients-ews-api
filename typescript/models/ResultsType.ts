@@ -24,6 +24,17 @@ export const ResultsType = {
 export type ResultsType = typeof ResultsType[keyof typeof ResultsType];
 
 
+export function instanceOfResultsType(value: any): boolean {
+    for (const key in ResultsType) {
+        if (Object.prototype.hasOwnProperty.call(ResultsType, key)) {
+            if ((ResultsType as Record<string, ResultsType>)[key] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 export function ResultsTypeFromJSON(json: any): ResultsType {
     return ResultsTypeFromJSONTyped(json, false);
 }

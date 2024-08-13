@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 import type { LocationType } from './LocationType';
 import {
     LocationTypeFromJSON,
@@ -55,13 +55,11 @@ export interface SuggestedLocation {
 /**
  * Check if a given object implements the SuggestedLocation interface.
  */
-export function instanceOfSuggestedLocation(value: object): boolean {
-    let isInstance = true;
-    isInstance = isInstance && "country" in value;
-    isInstance = isInstance && "locality" in value;
-    isInstance = isInstance && "type" in value;
-
-    return isInstance;
+export function instanceOfSuggestedLocation(value: object): value is SuggestedLocation {
+    if (!('country' in value) || value['country'] === undefined) return false;
+    if (!('locality' in value) || value['locality'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
+    return true;
 }
 
 export function SuggestedLocationFromJSON(json: any): SuggestedLocation {
@@ -69,31 +67,28 @@ export function SuggestedLocationFromJSON(json: any): SuggestedLocation {
 }
 
 export function SuggestedLocationFromJSONTyped(json: any, ignoreDiscriminator: boolean): SuggestedLocation {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'country': json['country'],
-        'postalCode': !exists(json, 'postalCode') ? undefined : json['postalCode'],
+        'postalCode': json['postalCode'] == null ? undefined : json['postalCode'],
         'locality': json['locality'],
         'type': LocationTypeFromJSON(json['type']),
     };
 }
 
 export function SuggestedLocationToJSON(value?: SuggestedLocation | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
+    if (value == null) {
+        return value;
     }
     return {
         
-        'country': value.country,
-        'postalCode': value.postalCode,
-        'locality': value.locality,
-        'type': LocationTypeToJSON(value.type),
+        'country': value['country'],
+        'postalCode': value['postalCode'],
+        'locality': value['locality'],
+        'type': LocationTypeToJSON(value['type']),
     };
 }
 

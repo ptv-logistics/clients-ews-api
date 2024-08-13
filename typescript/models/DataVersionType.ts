@@ -15,6 +15,7 @@
 
 /**
  * The version of the data by year.
+ * 
  * @export
  */
 export const DataVersionType = {
@@ -31,6 +32,17 @@ export const DataVersionType = {
 } as const;
 export type DataVersionType = typeof DataVersionType[keyof typeof DataVersionType];
 
+
+export function instanceOfDataVersionType(value: any): boolean {
+    for (const key in DataVersionType) {
+        if (Object.prototype.hasOwnProperty.call(DataVersionType, key)) {
+            if ((DataVersionType as Record<string, DataVersionType>)[key] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 export function DataVersionTypeFromJSON(json: any): DataVersionType {
     return DataVersionTypeFromJSONTyped(json, false);

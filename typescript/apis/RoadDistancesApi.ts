@@ -23,7 +23,7 @@ import type {
   ResultsType,
   RoadDistanceResponse,
   SuggestionsResponse,
-} from '../models';
+} from '../models/index';
 import {
     DataVersionTypeFromJSON,
     DataVersionTypeToJSON,
@@ -41,7 +41,7 @@ import {
     RoadDistanceResponseToJSON,
     SuggestionsResponseFromJSON,
     SuggestionsResponseToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface GetRelationRequest {
     start?: RequestLocation;
@@ -72,31 +72,31 @@ export class RoadDistancesApi extends runtime.BaseAPI {
     async getRelationRaw(requestParameters: GetRelationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoadDistanceResponse>> {
         const queryParameters: any = {};
 
-        if (requestParameters.start !== undefined) {
-            queryParameters['start'] = requestParameters.start;
+        if (requestParameters['start'] != null) {
+            queryParameters['start'] = requestParameters['start'];
         }
 
-        if (requestParameters.destination !== undefined) {
-            queryParameters['destination'] = requestParameters.destination;
+        if (requestParameters['destination'] != null) {
+            queryParameters['destination'] = requestParameters['destination'];
         }
 
-        if (requestParameters.region !== undefined) {
-            queryParameters['region'] = requestParameters.region;
+        if (requestParameters['region'] != null) {
+            queryParameters['region'] = requestParameters['region'];
         }
 
-        if (requestParameters.dataVersion !== undefined) {
-            queryParameters['dataVersion'] = requestParameters.dataVersion;
+        if (requestParameters['dataVersion'] != null) {
+            queryParameters['dataVersion'] = requestParameters['dataVersion'];
         }
 
-        if (requestParameters.results) {
-            queryParameters['results'] = requestParameters.results.join(runtime.COLLECTION_FORMATS["csv"]);
+        if (requestParameters['results'] != null) {
+            queryParameters['results'] = requestParameters['results']!.join(runtime.COLLECTION_FORMATS["csv"]);
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 		headerParameters['User-Agent'] = "ptv-generated typescript client";
 
         if (this.configuration && this.configuration.apiKey) {
-            headerParameters["apiKey"] = this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
+            headerParameters["apiKey"] = await this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
         }
 
         const response = await this.request({
@@ -123,39 +123,39 @@ export class RoadDistancesApi extends runtime.BaseAPI {
     async getSuggestionsRaw(requestParameters: GetSuggestionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuggestionsResponse>> {
         const queryParameters: any = {};
 
-        if (requestParameters.country !== undefined) {
-            queryParameters['country'] = requestParameters.country;
+        if (requestParameters['country'] != null) {
+            queryParameters['country'] = requestParameters['country'];
         }
 
-        if (requestParameters.postalCode !== undefined) {
-            queryParameters['postalCode'] = requestParameters.postalCode;
+        if (requestParameters['postalCode'] != null) {
+            queryParameters['postalCode'] = requestParameters['postalCode'];
         }
 
-        if (requestParameters.locality !== undefined) {
-            queryParameters['locality'] = requestParameters.locality;
+        if (requestParameters['locality'] != null) {
+            queryParameters['locality'] = requestParameters['locality'];
         }
 
-        if (requestParameters.region !== undefined) {
-            queryParameters['region'] = requestParameters.region;
+        if (requestParameters['region'] != null) {
+            queryParameters['region'] = requestParameters['region'];
         }
 
-        if (requestParameters.dataVersion !== undefined) {
-            queryParameters['dataVersion'] = requestParameters.dataVersion;
+        if (requestParameters['dataVersion'] != null) {
+            queryParameters['dataVersion'] = requestParameters['dataVersion'];
         }
 
-        if (requestParameters.type !== undefined) {
-            queryParameters['type'] = requestParameters.type;
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
         }
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 		headerParameters['User-Agent'] = "ptv-generated typescript client";
 
         if (this.configuration && this.configuration.apiKey) {
-            headerParameters["apiKey"] = this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
+            headerParameters["apiKey"] = await this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
         }
 
         const response = await this.request({

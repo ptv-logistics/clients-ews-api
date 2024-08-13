@@ -25,6 +25,17 @@ export const LocationType = {
 export type LocationType = typeof LocationType[keyof typeof LocationType];
 
 
+export function instanceOfLocationType(value: any): boolean {
+    for (const key in LocationType) {
+        if (Object.prototype.hasOwnProperty.call(LocationType, key)) {
+            if ((LocationType as Record<string, LocationType>)[key] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 export function LocationTypeFromJSON(json: any): LocationType {
     return LocationTypeFromJSONTyped(json, false);
 }
