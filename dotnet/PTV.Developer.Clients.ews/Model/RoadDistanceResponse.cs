@@ -29,7 +29,7 @@ namespace PTV.Developer.Clients.ews.Model
     /// RoadDistanceResponse
     /// </summary>
     [DataContract(Name = "RoadDistanceResponse")]
-    public partial class RoadDistanceResponse : IEquatable<RoadDistanceResponse>, IValidatableObject
+    public partial class RoadDistanceResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RoadDistanceResponse" /> class.
@@ -79,6 +79,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The distance of the relation [m].
         /// </summary>
         /// <value>The distance of the relation [m].</value>
+        /// <example>1422</example>
         [DataMember(Name = "distance", IsRequired = true, EmitDefaultValue = true)]
         public int Distance { get; set; }
 
@@ -86,6 +87,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The distance of toll roads of the relation [m], if requested.
         /// </summary>
         /// <value>The distance of toll roads of the relation [m], if requested.</value>
+        /// <example>985</example>
         [DataMember(Name = "tollDistance", EmitDefaultValue = false)]
         public int TollDistance { get; set; }
 
@@ -143,105 +145,22 @@ namespace PTV.Developer.Clients.ews.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as RoadDistanceResponse);
-        }
-
-        /// <summary>
-        /// Returns true if RoadDistanceResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of RoadDistanceResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(RoadDistanceResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Distance == input.Distance ||
-                    this.Distance.Equals(input.Distance)
-                ) && 
-                (
-                    this.TollDistance == input.TollDistance ||
-                    this.TollDistance.Equals(input.TollDistance)
-                ) && 
-                (
-                    this.Start == input.Start ||
-                    (this.Start != null &&
-                    this.Start.Equals(input.Start))
-                ) && 
-                (
-                    this.Destination == input.Destination ||
-                    (this.Destination != null &&
-                    this.Destination.Equals(input.Destination))
-                ) && 
-                (
-                    this.DataVersion == input.DataVersion ||
-                    (this.DataVersion != null &&
-                    this.DataVersion.Equals(input.DataVersion))
-                ) && 
-                (
-                    this.Region == input.Region ||
-                    (this.Region != null &&
-                    this.Region.Equals(input.Region))
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Distance.GetHashCode();
-                hashCode = (hashCode * 59) + this.TollDistance.GetHashCode();
-                if (this.Start != null)
-                {
-                    hashCode = (hashCode * 59) + this.Start.GetHashCode();
-                }
-                if (this.Destination != null)
-                {
-                    hashCode = (hashCode * 59) + this.Destination.GetHashCode();
-                }
-                if (this.DataVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.DataVersion.GetHashCode();
-                }
-                if (this.Region != null)
-                {
-                    hashCode = (hashCode * 59) + this.Region.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Distance (int) minimum
             if (this.Distance < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Distance, must be a value greater than or equal to 0.", new [] { "Distance" });
+                yield return new ValidationResult("Invalid value for Distance, must be a value greater than or equal to 0.", new [] { "Distance" });
             }
 
             // TollDistance (int) minimum
             if (this.TollDistance < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TollDistance, must be a value greater than or equal to 0.", new [] { "TollDistance" });
+                yield return new ValidationResult("Invalid value for TollDistance, must be a value greater than or equal to 0.", new [] { "TollDistance" });
             }
 
             yield break;

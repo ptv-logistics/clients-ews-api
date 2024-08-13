@@ -42,7 +42,6 @@ namespace PTV.Developer.Clients.ews.Model
         /// </summary>
         [EnumMember(Value = "TOLL_DISTANCE")]
         TOLL_DISTANCE = 2
-
     }
 
 }

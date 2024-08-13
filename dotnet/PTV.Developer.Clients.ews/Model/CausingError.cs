@@ -29,7 +29,7 @@ namespace PTV.Developer.Clients.ews.Model
     /// CausingError
     /// </summary>
     [DataContract(Name = "CausingError")]
-    public partial class CausingError : IEquatable<CausingError>, IValidatableObject
+    public partial class CausingError : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CausingError" /> class.
@@ -41,9 +41,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// </summary>
         /// <param name="description">A human readable message that describes the error. (required).</param>
         /// <param name="errorCode">A constant string that can be used to identify this error class programmatically. An errorCode can have **details** to provide information in additional properties which are described with the code they apply to. They are of type string unless otherwise specified. Note that additional errorCodes as well as the **details** of existing errorCodes may be added at any time. Furthermore, the **description** may change at any time.    **Error codes for** &#x60;GENERAL_VALIDATION_ERROR&#x60;  * &#x60;GENERAL_INVALID_VALUE&#x60; - A parameter is set to an invalid value.   * &#x60;value&#x60; - The invalid value. * &#x60;GENERAL_UNRECOGNIZED_PARAMETER&#x60; - A parameter is unknown. * &#x60;GENERAL_MISSING_PARAMETER&#x60; - A required parameter is missing. * &#x60;GENERAL_MINIMUM_VALUE_VIOLATED&#x60; - The minimum value restriction is violated.   * &#x60;minimumValue&#x60; - The minimum value (integer or double). * &#x60;GENERAL_MAXIMUM_VALUE_VIOLATED&#x60; - The maximum value restriction is violated.   * &#x60;maximumValue&#x60; - The maximum value (integer or double). * &#x60;GENERAL_DUPLICATE_PARAMETER&#x60; - A parameter is duplicated.  **Error codes for** &#x60;EWS_ERROR&#x60;  * &#x60;EWS_LOCATION_NOT_FOUND&#x60; - The location could not be found. * &#x60;EWS_LOCATION_NOT_UNIQUE&#x60; - The location is not unique. * &#x60;EWS_LOCATION_NOT_SPECIFIED&#x60; - The location is not specified. * &#x60;EWS_TOLL_DISTANCE_NOT_AVAILABLE&#x60; - The toll distance is only available for routes with start and destination both in Germany or both in Austria. (required).</param>
-        /// <param name="_parameter">The name of the affected query or path parameter or a JSONPath to the affected property of the request..</param>
+        /// <param name="varParameter">The name of the affected query or path parameter or a JSONPath to the affected property of the request..</param>
         /// <param name="details">Additional properties specific to this error class..</param>
-        public CausingError(string description = default(string), string errorCode = default(string), string _parameter = default(string), Dictionary<string, Object> details = default(Dictionary<string, Object>))
+        public CausingError(string description = default(string), string errorCode = default(string), string varParameter = default(string), Dictionary<string, Object> details = default(Dictionary<string, Object>))
         {
             // to ensure "description" is required (not null)
             if (description == null)
@@ -57,7 +57,7 @@ namespace PTV.Developer.Clients.ews.Model
                 throw new ArgumentNullException("errorCode is a required property for CausingError and cannot be null");
             }
             this.ErrorCode = errorCode;
-            this.Parameter = _parameter;
+            this.Parameter = varParameter;
             this.Details = details;
         }
 
@@ -115,85 +115,11 @@ namespace PTV.Developer.Clients.ews.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as CausingError);
-        }
-
-        /// <summary>
-        /// Returns true if CausingError instances are equal
-        /// </summary>
-        /// <param name="input">Instance of CausingError to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(CausingError input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.ErrorCode == input.ErrorCode ||
-                    (this.ErrorCode != null &&
-                    this.ErrorCode.Equals(input.ErrorCode))
-                ) && 
-                (
-                    this.Parameter == input.Parameter ||
-                    (this.Parameter != null &&
-                    this.Parameter.Equals(input.Parameter))
-                ) && 
-                (
-                    this.Details == input.Details ||
-                    this.Details != null &&
-                    input.Details != null &&
-                    this.Details.SequenceEqual(input.Details)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.ErrorCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.ErrorCode.GetHashCode();
-                }
-                if (this.Parameter != null)
-                {
-                    hashCode = (hashCode * 59) + this.Parameter.GetHashCode();
-                }
-                if (this.Details != null)
-                {
-                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -29,7 +29,7 @@ namespace PTV.Developer.Clients.ews.Model
     /// ErrorResponse
     /// </summary>
     [DataContract(Name = "ErrorResponse")]
-    public partial class ErrorResponse : IEquatable<ErrorResponse>, IValidatableObject
+    public partial class ErrorResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
@@ -140,104 +140,11 @@ namespace PTV.Developer.Clients.ews.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ErrorResponse);
-        }
-
-        /// <summary>
-        /// Returns true if ErrorResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ErrorResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ErrorResponse input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.ErrorCode == input.ErrorCode ||
-                    (this.ErrorCode != null &&
-                    this.ErrorCode.Equals(input.ErrorCode))
-                ) && 
-                (
-                    this.TraceId == input.TraceId ||
-                    (this.TraceId != null &&
-                    this.TraceId.Equals(input.TraceId))
-                ) && 
-                (
-                    this.ErrorId == input.ErrorId ||
-                    (this.ErrorId != null &&
-                    this.ErrorId.Equals(input.ErrorId))
-                ) && 
-                (
-                    this.Causes == input.Causes ||
-                    this.Causes != null &&
-                    input.Causes != null &&
-                    this.Causes.SequenceEqual(input.Causes)
-                ) && 
-                (
-                    this.Details == input.Details ||
-                    this.Details != null &&
-                    input.Details != null &&
-                    this.Details.SequenceEqual(input.Details)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.ErrorCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.ErrorCode.GetHashCode();
-                }
-                if (this.TraceId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TraceId.GetHashCode();
-                }
-                if (this.ErrorId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ErrorId.GetHashCode();
-                }
-                if (this.Causes != null)
-                {
-                    hashCode = (hashCode * 59) + this.Causes.GetHashCode();
-                }
-                if (this.Details != null)
-                {
-                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
-                }
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -474,11 +474,41 @@ namespace PTV.Developer.Clients.ews.Api
 
             if (start != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+                if (start.Country != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "start[country]", start.Country));
+                }
+                if (start.PostalCode != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "start[postalCode]", start.PostalCode));
+                }
+                if (start.Locality != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "start[locality]", start.Locality));
+                }
+                if (start.Type != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "start[type]", start.Type));
+                }
             }
             if (destination != null)
             {
-                localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "destination", destination));
+                if (destination.Country != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "destination[country]", destination.Country));
+                }
+                if (destination.PostalCode != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "destination[postalCode]", destination.PostalCode));
+                }
+                if (destination.Locality != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "destination[locality]", destination.Locality));
+                }
+                if (destination.Type != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(PTV.Developer.Clients.ews.Client.ClientUtils.ParameterToMultiMap("", "destination[type]", destination.Type));
+                }
             }
             if (region != null)
             {

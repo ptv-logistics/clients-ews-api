@@ -49,7 +49,6 @@ namespace PTV.Developer.Clients.ews.Model
         /// </summary>
         [EnumMember(Value = "GERMANY")]
         GERMANY = 3
-
     }
 
 }

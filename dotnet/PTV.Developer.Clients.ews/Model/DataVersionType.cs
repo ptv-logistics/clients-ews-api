@@ -91,7 +91,6 @@ namespace PTV.Developer.Clients.ews.Model
         /// </summary>
         [EnumMember(Value = "LATEST")]
         LATEST = 10
-
     }
 
 }

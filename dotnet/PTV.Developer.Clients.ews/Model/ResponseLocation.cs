@@ -29,7 +29,7 @@ namespace PTV.Developer.Clients.ews.Model
     /// The complete location used for start or destination of the relation.
     /// </summary>
     [DataContract(Name = "ResponseLocation")]
-    public partial class ResponseLocation : IEquatable<ResponseLocation>, IValidatableObject
+    public partial class ResponseLocation : IValidatableObject
     {
 
         /// <summary>
@@ -75,6 +75,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
         /// </summary>
         /// <value>The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).</value>
+        /// <example>DE</example>
         [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
         public string Country { get; set; }
 
@@ -82,6 +83,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The postal code, or zip-code, which is used by a postal authority of a country.
         /// </summary>
         /// <value>The postal code, or zip-code, which is used by a postal authority of a country.</value>
+        /// <example>76131</example>
         [DataMember(Name = "postalCode", EmitDefaultValue = false)]
         public string PostalCode { get; set; }
 
@@ -89,6 +91,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The name of the city or district in the language spoken in that country or region, always transliterated to Latin.
         /// </summary>
         /// <value>The name of the city or district in the language spoken in that country or region, always transliterated to Latin.</value>
+        /// <example>Karlsruhe</example>
         [DataMember(Name = "locality", IsRequired = true, EmitDefaultValue = true)]
         public string Locality { get; set; }
 
@@ -96,6 +99,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The latitude in degrees (WGS84/EPSG:4326) from south to north, if requested.
         /// </summary>
         /// <value>The latitude in degrees (WGS84/EPSG:4326) from south to north, if requested.</value>
+        /// <example>49.013465</example>
         [DataMember(Name = "latitude", EmitDefaultValue = false)]
         public double Latitude { get; set; }
 
@@ -103,6 +107,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The longitude in degrees (WGS84/EPSG:4326) from west to east, if requested.
         /// </summary>
         /// <value>The longitude in degrees (WGS84/EPSG:4326) from west to east, if requested.</value>
+        /// <example>8.428155</example>
         [DataMember(Name = "longitude", EmitDefaultValue = false)]
         public double Longitude { get; set; }
 
@@ -134,113 +139,34 @@ namespace PTV.Developer.Clients.ews.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ResponseLocation);
-        }
-
-        /// <summary>
-        /// Returns true if ResponseLocation instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ResponseLocation to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ResponseLocation input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Country == input.Country ||
-                    (this.Country != null &&
-                    this.Country.Equals(input.Country))
-                ) && 
-                (
-                    this.PostalCode == input.PostalCode ||
-                    (this.PostalCode != null &&
-                    this.PostalCode.Equals(input.PostalCode))
-                ) && 
-                (
-                    this.Locality == input.Locality ||
-                    (this.Locality != null &&
-                    this.Locality.Equals(input.Locality))
-                ) && 
-                (
-                    this.Latitude == input.Latitude ||
-                    this.Latitude.Equals(input.Latitude)
-                ) && 
-                (
-                    this.Longitude == input.Longitude ||
-                    this.Longitude.Equals(input.Longitude)
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Country != null)
-                {
-                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
-                }
-                if (this.PostalCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.PostalCode.GetHashCode();
-                }
-                if (this.Locality != null)
-                {
-                    hashCode = (hashCode * 59) + this.Locality.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Latitude.GetHashCode();
-                hashCode = (hashCode * 59) + this.Longitude.GetHashCode();
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Latitude (double) maximum
             if (this.Latitude > (double)90)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Latitude, must be a value less than or equal to 90.", new [] { "Latitude" });
+                yield return new ValidationResult("Invalid value for Latitude, must be a value less than or equal to 90.", new [] { "Latitude" });
             }
 
             // Latitude (double) minimum
             if (this.Latitude < (double)-90)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Latitude, must be a value greater than or equal to -90.", new [] { "Latitude" });
+                yield return new ValidationResult("Invalid value for Latitude, must be a value greater than or equal to -90.", new [] { "Latitude" });
             }
 
             // Longitude (double) maximum
             if (this.Longitude > (double)180)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Longitude, must be a value less than or equal to 180.", new [] { "Longitude" });
+                yield return new ValidationResult("Invalid value for Longitude, must be a value less than or equal to 180.", new [] { "Longitude" });
             }
 
             // Longitude (double) minimum
             if (this.Longitude < (double)-180)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Longitude, must be a value greater than or equal to -180.", new [] { "Longitude" });
+                yield return new ValidationResult("Invalid value for Longitude, must be a value greater than or equal to -180.", new [] { "Longitude" });
             }
 
             yield break;

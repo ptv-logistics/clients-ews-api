@@ -29,7 +29,7 @@ namespace PTV.Developer.Clients.ews.Model
     /// RequestLocation
     /// </summary>
     [DataContract(Name = "RequestLocation")]
-    public partial class RequestLocation : IEquatable<RequestLocation>, IValidatableObject
+    public partial class RequestLocation : IValidatableObject
     {
 
         /// <summary>
@@ -56,6 +56,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
         /// </summary>
         /// <value>The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).</value>
+        /// <example>DE</example>
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
@@ -63,6 +64,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The postal code, or zip-code, which is used by a postal authority of a country.
         /// </summary>
         /// <value>The postal code, or zip-code, which is used by a postal authority of a country.</value>
+        /// <example>76131</example>
         [DataMember(Name = "postalCode", EmitDefaultValue = true)]
         public string PostalCode { get; set; }
 
@@ -70,6 +72,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// The name of a locality in the language spoken in that country or region, always transliterated to Latin. It can be the name of a city (e.g. &#39;Karlsruhe&#39;), a subdistrict (e.g. &#39;Durlach&#39;) or a combination of both separated with a blank (e.g. &#39;Karlsruhe Durlach&#39;).
         /// </summary>
         /// <value>The name of a locality in the language spoken in that country or region, always transliterated to Latin. It can be the name of a city (e.g. &#39;Karlsruhe&#39;), a subdistrict (e.g. &#39;Durlach&#39;) or a combination of both separated with a blank (e.g. &#39;Karlsruhe Durlach&#39;).</value>
+        /// <example>Karlsruhe</example>
         [DataMember(Name = "locality", EmitDefaultValue = true)]
         public string Locality { get; set; }
 
@@ -99,80 +102,11 @@ namespace PTV.Developer.Clients.ews.Model
         }
 
         /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as RequestLocation);
-        }
-
-        /// <summary>
-        /// Returns true if RequestLocation instances are equal
-        /// </summary>
-        /// <param name="input">Instance of RequestLocation to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(RequestLocation input)
-        {
-            if (input == null)
-            {
-                return false;
-            }
-            return 
-                (
-                    this.Country == input.Country ||
-                    (this.Country != null &&
-                    this.Country.Equals(input.Country))
-                ) && 
-                (
-                    this.PostalCode == input.PostalCode ||
-                    (this.PostalCode != null &&
-                    this.PostalCode.Equals(input.PostalCode))
-                ) && 
-                (
-                    this.Locality == input.Locality ||
-                    (this.Locality != null &&
-                    this.Locality.Equals(input.Locality))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                );
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.Country != null)
-                {
-                    hashCode = (hashCode * 59) + this.Country.GetHashCode();
-                }
-                if (this.PostalCode != null)
-                {
-                    hashCode = (hashCode * 59) + this.PostalCode.GetHashCode();
-                }
-                if (this.Locality != null)
-                {
-                    hashCode = (hashCode * 59) + this.Locality.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                return hashCode;
-            }
-        }
-
-        /// <summary>
         /// To validate all properties of the instance
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
