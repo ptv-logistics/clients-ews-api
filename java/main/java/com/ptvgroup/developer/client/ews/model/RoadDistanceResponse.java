@@ -41,30 +41,36 @@ import com.ptvgroup.developer.client.ews.ApiClient;
   RoadDistanceResponse.JSON_PROPERTY_DATA_VERSION,
   RoadDistanceResponse.JSON_PROPERTY_REGION
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-15T14:32:29.687031255Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.746307212Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class RoadDistanceResponse {
   public static final String JSON_PROPERTY_DISTANCE = "distance";
+  @javax.annotation.Nonnull
   private Integer distance;
 
   public static final String JSON_PROPERTY_TOLL_DISTANCE = "tollDistance";
+  @javax.annotation.Nullable
   private Integer tollDistance;
 
   public static final String JSON_PROPERTY_START = "start";
+  @javax.annotation.Nonnull
   private ResponseLocation start;
 
   public static final String JSON_PROPERTY_DESTINATION = "destination";
+  @javax.annotation.Nonnull
   private ResponseLocation destination;
 
   public static final String JSON_PROPERTY_DATA_VERSION = "dataVersion";
+  @javax.annotation.Nonnull
   private String dataVersion;
 
   public static final String JSON_PROPERTY_REGION = "region";
+  @javax.annotation.Nonnull
   private String region;
 
   public RoadDistanceResponse() { 
   }
 
-  public RoadDistanceResponse distance(Integer distance) {
+  public RoadDistanceResponse distance(@javax.annotation.Nonnull Integer distance) {
     this.distance = distance;
     return this;
   }
@@ -75,21 +81,21 @@ public class RoadDistanceResponse {
    * @return distance
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DISTANCE)
+  @JsonProperty(value = JSON_PROPERTY_DISTANCE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Integer getDistance() {
     return distance;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DISTANCE)
+  @JsonProperty(value = JSON_PROPERTY_DISTANCE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDistance(Integer distance) {
+  public void setDistance(@javax.annotation.Nonnull Integer distance) {
     this.distance = distance;
   }
 
 
-  public RoadDistanceResponse tollDistance(Integer tollDistance) {
+  public RoadDistanceResponse tollDistance(@javax.annotation.Nullable Integer tollDistance) {
     this.tollDistance = tollDistance;
     return this;
   }
@@ -100,21 +106,21 @@ public class RoadDistanceResponse {
    * @return tollDistance
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TOLL_DISTANCE)
+  @JsonProperty(value = JSON_PROPERTY_TOLL_DISTANCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getTollDistance() {
     return tollDistance;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TOLL_DISTANCE)
+  @JsonProperty(value = JSON_PROPERTY_TOLL_DISTANCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTollDistance(Integer tollDistance) {
+  public void setTollDistance(@javax.annotation.Nullable Integer tollDistance) {
     this.tollDistance = tollDistance;
   }
 
 
-  public RoadDistanceResponse start(ResponseLocation start) {
+  public RoadDistanceResponse start(@javax.annotation.Nonnull ResponseLocation start) {
     this.start = start;
     return this;
   }
@@ -124,21 +130,21 @@ public class RoadDistanceResponse {
    * @return start
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ResponseLocation getStart() {
     return start;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStart(ResponseLocation start) {
+  public void setStart(@javax.annotation.Nonnull ResponseLocation start) {
     this.start = start;
   }
 
 
-  public RoadDistanceResponse destination(ResponseLocation destination) {
+  public RoadDistanceResponse destination(@javax.annotation.Nonnull ResponseLocation destination) {
     this.destination = destination;
     return this;
   }
@@ -148,21 +154,21 @@ public class RoadDistanceResponse {
    * @return destination
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DESTINATION)
+  @JsonProperty(value = JSON_PROPERTY_DESTINATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ResponseLocation getDestination() {
     return destination;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DESTINATION)
+  @JsonProperty(value = JSON_PROPERTY_DESTINATION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDestination(ResponseLocation destination) {
+  public void setDestination(@javax.annotation.Nonnull ResponseLocation destination) {
     this.destination = destination;
   }
 
 
-  public RoadDistanceResponse dataVersion(String dataVersion) {
+  public RoadDistanceResponse dataVersion(@javax.annotation.Nonnull String dataVersion) {
     this.dataVersion = dataVersion;
     return this;
   }
@@ -172,21 +178,21 @@ public class RoadDistanceResponse {
    * @return dataVersion
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DATA_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_DATA_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDataVersion() {
     return dataVersion;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATA_VERSION)
+  @JsonProperty(value = JSON_PROPERTY_DATA_VERSION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDataVersion(String dataVersion) {
+  public void setDataVersion(@javax.annotation.Nonnull String dataVersion) {
     this.dataVersion = dataVersion;
   }
 
 
-  public RoadDistanceResponse region(String region) {
+  public RoadDistanceResponse region(@javax.annotation.Nonnull String region) {
     this.region = region;
     return this;
   }
@@ -196,16 +202,16 @@ public class RoadDistanceResponse {
    * @return region
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonProperty(value = JSON_PROPERTY_REGION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getRegion() {
     return region;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_REGION)
+  @JsonProperty(value = JSON_PROPERTY_REGION, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRegion(String region) {
+  public void setRegion(@javax.annotation.Nonnull String region) {
     this.region = region;
   }
 
@@ -254,10 +260,7 @@ public class RoadDistanceResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -294,12 +297,12 @@ public class RoadDistanceResponse {
 
     // add `distance` to the URL query string
     if (getDistance() != null) {
-      joiner.add(String.format("%sdistance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDistance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdistance%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDistance()))));
     }
 
     // add `tollDistance` to the URL query string
     if (getTollDistance() != null) {
-      joiner.add(String.format("%stollDistance%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getTollDistance()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%stollDistance%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getTollDistance()))));
     }
 
     // add `start` to the URL query string
@@ -314,12 +317,12 @@ public class RoadDistanceResponse {
 
     // add `dataVersion` to the URL query string
     if (getDataVersion() != null) {
-      joiner.add(String.format("%sdataVersion%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getDataVersion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sdataVersion%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getDataVersion()))));
     }
 
     // add `region` to the URL query string
     if (getRegion() != null) {
-      joiner.add(String.format("%sregion%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getRegion()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%sregion%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getRegion()))));
     }
 
     return joiner.toString();

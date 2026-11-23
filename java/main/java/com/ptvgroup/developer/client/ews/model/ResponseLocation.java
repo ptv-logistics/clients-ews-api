@@ -41,30 +41,36 @@ import com.ptvgroup.developer.client.ews.ApiClient;
   ResponseLocation.JSON_PROPERTY_LONGITUDE,
   ResponseLocation.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-15T14:32:29.687031255Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.746307212Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class ResponseLocation {
   public static final String JSON_PROPERTY_COUNTRY = "country";
+  @javax.annotation.Nonnull
   private String country;
 
   public static final String JSON_PROPERTY_POSTAL_CODE = "postalCode";
+  @javax.annotation.Nullable
   private String postalCode;
 
   public static final String JSON_PROPERTY_LOCALITY = "locality";
+  @javax.annotation.Nonnull
   private String locality;
 
   public static final String JSON_PROPERTY_LATITUDE = "latitude";
+  @javax.annotation.Nullable
   private Double latitude;
 
   public static final String JSON_PROPERTY_LONGITUDE = "longitude";
+  @javax.annotation.Nullable
   private Double longitude;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
   private LocationType type = LocationType.CITY;
 
   public ResponseLocation() { 
   }
 
-  public ResponseLocation country(String country) {
+  public ResponseLocation country(@javax.annotation.Nonnull String country) {
     this.country = country;
     return this;
   }
@@ -74,21 +80,21 @@ public class ResponseLocation {
    * @return country
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonProperty(value = JSON_PROPERTY_COUNTRY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getCountry() {
     return country;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonProperty(value = JSON_PROPERTY_COUNTRY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCountry(String country) {
+  public void setCountry(@javax.annotation.Nonnull String country) {
     this.country = country;
   }
 
 
-  public ResponseLocation postalCode(String postalCode) {
+  public ResponseLocation postalCode(@javax.annotation.Nullable String postalCode) {
     this.postalCode = postalCode;
     return this;
   }
@@ -98,21 +104,21 @@ public class ResponseLocation {
    * @return postalCode
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
+  @JsonProperty(value = JSON_PROPERTY_POSTAL_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPostalCode() {
     return postalCode;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_POSTAL_CODE)
+  @JsonProperty(value = JSON_PROPERTY_POSTAL_CODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPostalCode(String postalCode) {
+  public void setPostalCode(@javax.annotation.Nullable String postalCode) {
     this.postalCode = postalCode;
   }
 
 
-  public ResponseLocation locality(String locality) {
+  public ResponseLocation locality(@javax.annotation.Nonnull String locality) {
     this.locality = locality;
     return this;
   }
@@ -122,21 +128,21 @@ public class ResponseLocation {
    * @return locality
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LOCALITY)
+  @JsonProperty(value = JSON_PROPERTY_LOCALITY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getLocality() {
     return locality;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOCALITY)
+  @JsonProperty(value = JSON_PROPERTY_LOCALITY, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLocality(String locality) {
+  public void setLocality(@javax.annotation.Nonnull String locality) {
     this.locality = locality;
   }
 
 
-  public ResponseLocation latitude(Double latitude) {
+  public ResponseLocation latitude(@javax.annotation.Nullable Double latitude) {
     this.latitude = latitude;
     return this;
   }
@@ -148,21 +154,21 @@ public class ResponseLocation {
    * @return latitude
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LATITUDE)
+  @JsonProperty(value = JSON_PROPERTY_LATITUDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLatitude() {
     return latitude;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LATITUDE)
+  @JsonProperty(value = JSON_PROPERTY_LATITUDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLatitude(Double latitude) {
+  public void setLatitude(@javax.annotation.Nullable Double latitude) {
     this.latitude = latitude;
   }
 
 
-  public ResponseLocation longitude(Double longitude) {
+  public ResponseLocation longitude(@javax.annotation.Nullable Double longitude) {
     this.longitude = longitude;
     return this;
   }
@@ -174,21 +180,21 @@ public class ResponseLocation {
    * @return longitude
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LONGITUDE)
+  @JsonProperty(value = JSON_PROPERTY_LONGITUDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Double getLongitude() {
     return longitude;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LONGITUDE)
+  @JsonProperty(value = JSON_PROPERTY_LONGITUDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLongitude(Double longitude) {
+  public void setLongitude(@javax.annotation.Nullable Double longitude) {
     this.longitude = longitude;
   }
 
 
-  public ResponseLocation type(LocationType type) {
+  public ResponseLocation type(@javax.annotation.Nonnull LocationType type) {
     this.type = type;
     return this;
   }
@@ -198,16 +204,16 @@ public class ResponseLocation {
    * @return type
    */
   @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public LocationType getType() {
     return type;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(LocationType type) {
+  public void setType(@javax.annotation.Nonnull LocationType type) {
     this.type = type;
   }
 
@@ -256,10 +262,7 @@ public class ResponseLocation {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -296,32 +299,32 @@ public class ResponseLocation {
 
     // add `country` to the URL query string
     if (getCountry() != null) {
-      joiner.add(String.format("%scountry%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getCountry()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%scountry%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getCountry()))));
     }
 
     // add `postalCode` to the URL query string
     if (getPostalCode() != null) {
-      joiner.add(String.format("%spostalCode%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getPostalCode()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%spostalCode%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getPostalCode()))));
     }
 
     // add `locality` to the URL query string
     if (getLocality() != null) {
-      joiner.add(String.format("%slocality%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLocality()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%slocality%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLocality()))));
     }
 
     // add `latitude` to the URL query string
     if (getLatitude() != null) {
-      joiner.add(String.format("%slatitude%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLatitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%slatitude%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLatitude()))));
     }
 
     // add `longitude` to the URL query string
     if (getLongitude() != null) {
-      joiner.add(String.format("%slongitude%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getLongitude()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%slongitude%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getLongitude()))));
     }
 
     // add `type` to the URL query string
     if (getType() != null) {
-      joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(ApiClient.valueToString(getType()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+      joiner.add(String.format(java.util.Locale.ROOT, "%stype%s=%s", prefix, suffix, ApiClient.urlEncode(ApiClient.valueToString(getType()))));
     }
 
     return joiner.toString();

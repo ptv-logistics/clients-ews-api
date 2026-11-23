@@ -38,15 +38,16 @@ import com.ptvgroup.developer.client.ews.ApiClient;
 @JsonPropertyOrder({
   SuggestionsResponse.JSON_PROPERTY_SUGGESTIONS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-15T14:32:29.687031255Z[Etc/UTC]", comments = "Generator version: 7.8.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-23T08:20:33.746307212Z[Etc/UTC]", comments = "Generator version: 7.22.0")
 public class SuggestionsResponse {
   public static final String JSON_PROPERTY_SUGGESTIONS = "suggestions";
+  @javax.annotation.Nullable
   private List<SuggestedLocation> suggestions;
 
   public SuggestionsResponse() { 
   }
 
-  public SuggestionsResponse suggestions(List<SuggestedLocation> suggestions) {
+  public SuggestionsResponse suggestions(@javax.annotation.Nullable List<SuggestedLocation> suggestions) {
     this.suggestions = suggestions;
     return this;
   }
@@ -64,16 +65,16 @@ public class SuggestionsResponse {
    * @return suggestions
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SUGGESTIONS)
+  @JsonProperty(value = JSON_PROPERTY_SUGGESTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SuggestedLocation> getSuggestions() {
     return suggestions;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SUGGESTIONS)
+  @JsonProperty(value = JSON_PROPERTY_SUGGESTIONS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSuggestions(List<SuggestedLocation> suggestions) {
+  public void setSuggestions(@javax.annotation.Nullable List<SuggestedLocation> suggestions) {
     this.suggestions = suggestions;
   }
 
@@ -112,10 +113,7 @@ public class SuggestionsResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
   /**
@@ -154,8 +152,8 @@ public class SuggestionsResponse {
     if (getSuggestions() != null) {
       for (int i = 0; i < getSuggestions().size(); i++) {
         if (getSuggestions().get(i) != null) {
-          joiner.add(getSuggestions().get(i).toUrlQueryString(String.format("%ssuggestions%s%s", prefix, suffix,
-          "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          joiner.add(getSuggestions().get(i).toUrlQueryString(String.format(java.util.Locale.ROOT, "%ssuggestions%s%s", prefix, suffix,
+          "".equals(suffix) ? "" : String.format(java.util.Locale.ROOT, "%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
     }
