@@ -40,7 +40,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="results">Comma-separated list that defines which results besides the distance will be returned. * &#x60;COORDINATES&#x60;     Response includes latitude and longitude of the reference locations of start and destination. * &#x60;TOLL_DISTANCE&#x60;     Response includes the distance of toll roads of the relation. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RoadDistanceResponse</returns>
-        RoadDistanceResponse GetRelation(RequestLocation? start = default(RequestLocation?), RequestLocation? destination = default(RequestLocation?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), List<ResultsType>? results = default(List<ResultsType>?), int operationIndex = 0);
+        RoadDistanceResponse GetRelation(RequestLocation? start = default, RequestLocation? destination = default, RegionType? region = default, DataVersionType? dataVersion = default, List<ResultsType>? results = default, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -56,7 +56,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="results">Comma-separated list that defines which results besides the distance will be returned. * &#x60;COORDINATES&#x60;     Response includes latitude and longitude of the reference locations of start and destination. * &#x60;TOLL_DISTANCE&#x60;     Response includes the distance of toll roads of the relation. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RoadDistanceResponse</returns>
-        ApiResponse<RoadDistanceResponse> GetRelationWithHttpInfo(RequestLocation? start = default(RequestLocation?), RequestLocation? destination = default(RequestLocation?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), List<ResultsType>? results = default(List<ResultsType>?), int operationIndex = 0);
+        ApiResponse<RoadDistanceResponse> GetRelationWithHttpInfo(RequestLocation? start = default, RequestLocation? destination = default, RegionType? region = default, DataVersionType? dataVersion = default, List<ResultsType>? results = default, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -73,7 +73,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="limit"> (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SuggestionsResponse</returns>
-        SuggestionsResponse GetSuggestions(string? country = default(string?), string? postalCode = default(string?), string? locality = default(string?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), LocationType? type = default(LocationType?), int? limit = default(int?), int operationIndex = 0);
+        SuggestionsResponse GetSuggestions(string? country = default, string? postalCode = default, string? locality = default, RegionType? region = default, DataVersionType? dataVersion = default, LocationType? type = default, int? limit = default, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -91,7 +91,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="limit"> (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SuggestionsResponse</returns>
-        ApiResponse<SuggestionsResponse> GetSuggestionsWithHttpInfo(string? country = default(string?), string? postalCode = default(string?), string? locality = default(string?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), LocationType? type = default(LocationType?), int? limit = default(int?), int operationIndex = 0);
+        ApiResponse<SuggestionsResponse> GetSuggestionsWithHttpInfo(string? country = default, string? postalCode = default, string? locality = default, RegionType? region = default, DataVersionType? dataVersion = default, LocationType? type = default, int? limit = default, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -116,7 +116,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RoadDistanceResponse</returns>
-        System.Threading.Tasks.Task<RoadDistanceResponse> GetRelationAsync(RequestLocation? start = default(RequestLocation?), RequestLocation? destination = default(RequestLocation?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), List<ResultsType>? results = default(List<ResultsType>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<RoadDistanceResponse> GetRelationAsync(RequestLocation? start = default, RequestLocation? destination = default, RegionType? region = default, DataVersionType? dataVersion = default, List<ResultsType>? results = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -133,7 +133,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RoadDistanceResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RoadDistanceResponse>> GetRelationWithHttpInfoAsync(RequestLocation? start = default(RequestLocation?), RequestLocation? destination = default(RequestLocation?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), List<ResultsType>? results = default(List<ResultsType>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<RoadDistanceResponse>> GetRelationWithHttpInfoAsync(RequestLocation? start = default, RequestLocation? destination = default, RegionType? region = default, DataVersionType? dataVersion = default, List<ResultsType>? results = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -151,7 +151,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuggestionsResponse</returns>
-        System.Threading.Tasks.Task<SuggestionsResponse> GetSuggestionsAsync(string? country = default(string?), string? postalCode = default(string?), string? locality = default(string?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), LocationType? type = default(LocationType?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SuggestionsResponse> GetSuggestionsAsync(string? country = default, string? postalCode = default, string? locality = default, RegionType? region = default, DataVersionType? dataVersion = default, LocationType? type = default, int? limit = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -170,7 +170,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuggestionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuggestionsResponse>> GetSuggestionsWithHttpInfoAsync(string? country = default(string?), string? postalCode = default(string?), string? locality = default(string?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), LocationType? type = default(LocationType?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<SuggestionsResponse>> GetSuggestionsWithHttpInfoAsync(string? country = default, string? postalCode = default, string? locality = default, RegionType? region = default, DataVersionType? dataVersion = default, LocationType? type = default, int? limit = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -302,7 +302,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="results">Comma-separated list that defines which results besides the distance will be returned. * &#x60;COORDINATES&#x60;     Response includes latitude and longitude of the reference locations of start and destination. * &#x60;TOLL_DISTANCE&#x60;     Response includes the distance of toll roads of the relation. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>RoadDistanceResponse</returns>
-        public RoadDistanceResponse GetRelation(RequestLocation? start = default(RequestLocation?), RequestLocation? destination = default(RequestLocation?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), List<ResultsType>? results = default(List<ResultsType>?), int operationIndex = 0)
+        public RoadDistanceResponse GetRelation(RequestLocation? start = default, RequestLocation? destination = default, RegionType? region = default, DataVersionType? dataVersion = default, List<ResultsType>? results = default, int operationIndex = 0)
         {
             PTV.Developer.Clients.ews.Client.ApiResponse<RoadDistanceResponse> localVarResponse = GetRelationWithHttpInfo(start, destination, region, dataVersion, results);
             return localVarResponse.Data;
@@ -319,7 +319,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="results">Comma-separated list that defines which results besides the distance will be returned. * &#x60;COORDINATES&#x60;     Response includes latitude and longitude of the reference locations of start and destination. * &#x60;TOLL_DISTANCE&#x60;     Response includes the distance of toll roads of the relation. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of RoadDistanceResponse</returns>
-        public PTV.Developer.Clients.ews.Client.ApiResponse<RoadDistanceResponse> GetRelationWithHttpInfo(RequestLocation? start = default(RequestLocation?), RequestLocation? destination = default(RequestLocation?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), List<ResultsType>? results = default(List<ResultsType>?), int operationIndex = 0)
+        public PTV.Developer.Clients.ews.Client.ApiResponse<RoadDistanceResponse> GetRelationWithHttpInfo(RequestLocation? start = default, RequestLocation? destination = default, RegionType? region = default, DataVersionType? dataVersion = default, List<ResultsType>? results = default, int operationIndex = 0)
         {
             PTV.Developer.Clients.ews.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.ews.Client.RequestOptions();
 
@@ -332,6 +332,7 @@ namespace PTV.Developer.Clients.ews.Api
             };
 
             var localVarContentType = PTV.Developer.Clients.ews.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -429,7 +430,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of RoadDistanceResponse</returns>
-        public async System.Threading.Tasks.Task<RoadDistanceResponse> GetRelationAsync(RequestLocation? start = default(RequestLocation?), RequestLocation? destination = default(RequestLocation?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), List<ResultsType>? results = default(List<ResultsType>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<RoadDistanceResponse> GetRelationAsync(RequestLocation? start = default, RequestLocation? destination = default, RegionType? region = default, DataVersionType? dataVersion = default, List<ResultsType>? results = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             PTV.Developer.Clients.ews.Client.ApiResponse<RoadDistanceResponse> localVarResponse = await GetRelationWithHttpInfoAsync(start, destination, region, dataVersion, results, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -447,7 +448,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (RoadDistanceResponse)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.ews.Client.ApiResponse<RoadDistanceResponse>> GetRelationWithHttpInfoAsync(RequestLocation? start = default(RequestLocation?), RequestLocation? destination = default(RequestLocation?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), List<ResultsType>? results = default(List<ResultsType>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.ews.Client.ApiResponse<RoadDistanceResponse>> GetRelationWithHttpInfoAsync(RequestLocation? start = default, RequestLocation? destination = default, RegionType? region = default, DataVersionType? dataVersion = default, List<ResultsType>? results = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
 
             PTV.Developer.Clients.ews.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.ews.Client.RequestOptions();
@@ -560,7 +561,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="limit"> (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>SuggestionsResponse</returns>
-        public SuggestionsResponse GetSuggestions(string? country = default(string?), string? postalCode = default(string?), string? locality = default(string?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), LocationType? type = default(LocationType?), int? limit = default(int?), int operationIndex = 0)
+        public SuggestionsResponse GetSuggestions(string? country = default, string? postalCode = default, string? locality = default, RegionType? region = default, DataVersionType? dataVersion = default, LocationType? type = default, int? limit = default, int operationIndex = 0)
         {
             PTV.Developer.Clients.ews.Client.ApiResponse<SuggestionsResponse> localVarResponse = GetSuggestionsWithHttpInfo(country, postalCode, locality, region, dataVersion, type, limit);
             return localVarResponse.Data;
@@ -579,7 +580,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="limit"> (optional, default to 10)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of SuggestionsResponse</returns>
-        public PTV.Developer.Clients.ews.Client.ApiResponse<SuggestionsResponse> GetSuggestionsWithHttpInfo(string? country = default(string?), string? postalCode = default(string?), string? locality = default(string?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), LocationType? type = default(LocationType?), int? limit = default(int?), int operationIndex = 0)
+        public PTV.Developer.Clients.ews.Client.ApiResponse<SuggestionsResponse> GetSuggestionsWithHttpInfo(string? country = default, string? postalCode = default, string? locality = default, RegionType? region = default, DataVersionType? dataVersion = default, LocationType? type = default, int? limit = default, int operationIndex = 0)
         {
             PTV.Developer.Clients.ews.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.ews.Client.RequestOptions();
 
@@ -592,6 +593,7 @@ namespace PTV.Developer.Clients.ews.Api
             };
 
             var localVarContentType = PTV.Developer.Clients.ews.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            var localVarMultipartFormData = localVarContentType == "multipart/form-data";
             if (localVarContentType != null)
             {
                 localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -669,7 +671,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of SuggestionsResponse</returns>
-        public async System.Threading.Tasks.Task<SuggestionsResponse> GetSuggestionsAsync(string? country = default(string?), string? postalCode = default(string?), string? locality = default(string?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), LocationType? type = default(LocationType?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SuggestionsResponse> GetSuggestionsAsync(string? country = default, string? postalCode = default, string? locality = default, RegionType? region = default, DataVersionType? dataVersion = default, LocationType? type = default, int? limit = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
             PTV.Developer.Clients.ews.Client.ApiResponse<SuggestionsResponse> localVarResponse = await GetSuggestionsWithHttpInfoAsync(country, postalCode, locality, region, dataVersion, type, limit, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -689,7 +691,7 @@ namespace PTV.Developer.Clients.ews.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (SuggestionsResponse)</returns>
-        public async System.Threading.Tasks.Task<PTV.Developer.Clients.ews.Client.ApiResponse<SuggestionsResponse>> GetSuggestionsWithHttpInfoAsync(string? country = default(string?), string? postalCode = default(string?), string? locality = default(string?), RegionType? region = default(RegionType?), DataVersionType? dataVersion = default(DataVersionType?), LocationType? type = default(LocationType?), int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PTV.Developer.Clients.ews.Client.ApiResponse<SuggestionsResponse>> GetSuggestionsWithHttpInfoAsync(string? country = default, string? postalCode = default, string? locality = default, RegionType? region = default, DataVersionType? dataVersion = default, LocationType? type = default, int? limit = default, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default)
         {
 
             PTV.Developer.Clients.ews.Client.RequestOptions localVarRequestOptions = new PTV.Developer.Clients.ews.Client.RequestOptions();

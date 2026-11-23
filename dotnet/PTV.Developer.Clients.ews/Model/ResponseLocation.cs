@@ -51,7 +51,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// <param name="latitude">The latitude in degrees (WGS84/EPSG:4326) from south to north, if requested..</param>
         /// <param name="longitude">The longitude in degrees (WGS84/EPSG:4326) from west to east, if requested..</param>
         /// <param name="type">type (required).</param>
-        public ResponseLocation(string country = default(string), string postalCode = default(string), string locality = default(string), double? latitude = default(double?), double? longitude = default(double?), LocationType type = default(LocationType))
+        public ResponseLocation(string country = default, string postalCode = default, string locality = default, double? latitude = default, double? longitude = default, LocationType type = default)
         {
             // to ensure "country" is required (not null)
             if (country == null)
@@ -75,7 +75,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
         /// </summary>
         /// <value>The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).</value>
-        /// <example>DE</example>
+        /*
+        <example>DE</example>
+        */
         [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
         public string Country { get; set; }
 
@@ -83,7 +85,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The postal code, or zip-code, which is used by a postal authority of a country.
         /// </summary>
         /// <value>The postal code, or zip-code, which is used by a postal authority of a country.</value>
-        /// <example>76131</example>
+        /*
+        <example>76131</example>
+        */
         [DataMember(Name = "postalCode", EmitDefaultValue = true)]
         public string PostalCode { get; set; }
 
@@ -91,7 +95,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The name of the city or district in the language spoken in that country or region, always transliterated to Latin.
         /// </summary>
         /// <value>The name of the city or district in the language spoken in that country or region, always transliterated to Latin.</value>
-        /// <example>Karlsruhe</example>
+        /*
+        <example>Karlsruhe</example>
+        */
         [DataMember(Name = "locality", IsRequired = true, EmitDefaultValue = true)]
         public string Locality { get; set; }
 
@@ -99,7 +105,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The latitude in degrees (WGS84/EPSG:4326) from south to north, if requested.
         /// </summary>
         /// <value>The latitude in degrees (WGS84/EPSG:4326) from south to north, if requested.</value>
-        /// <example>49.013465</example>
+        /*
+        <example>49.013465</example>
+        */
         [DataMember(Name = "latitude", EmitDefaultValue = true)]
         public double? Latitude { get; set; }
 
@@ -107,7 +115,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The longitude in degrees (WGS84/EPSG:4326) from west to east, if requested.
         /// </summary>
         /// <value>The longitude in degrees (WGS84/EPSG:4326) from west to east, if requested.</value>
-        /// <example>8.428155</example>
+        /*
+        <example>8.428155</example>
+        */
         [DataMember(Name = "longitude", EmitDefaultValue = true)]
         public double? Longitude { get; set; }
 

@@ -44,7 +44,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// <param name="postalCode">The postal code, or zip-code, which is used by a postal authority of a country..</param>
         /// <param name="locality">The name of a locality in the language spoken in that country or region, always transliterated to Latin. It can be the name of a city (e.g. &#39;Karlsruhe&#39;), a subdistrict (e.g. &#39;Durlach&#39;) or a combination of both separated with a blank (e.g. &#39;Karlsruhe Durlach&#39;)..</param>
         /// <param name="type">type.</param>
-        public RequestLocation(string country = default(string), string postalCode = default(string), string locality = default(string), LocationType? type = default(LocationType?))
+        public RequestLocation(string country = default, string postalCode = default, string locality = default, LocationType? type = default)
         {
             this.Country = country;
             this.PostalCode = postalCode;
@@ -56,7 +56,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
         /// </summary>
         /// <value>The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).</value>
-        /// <example>DE</example>
+        /*
+        <example>DE</example>
+        */
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
 
@@ -64,7 +66,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The postal code, or zip-code, which is used by a postal authority of a country.
         /// </summary>
         /// <value>The postal code, or zip-code, which is used by a postal authority of a country.</value>
-        /// <example>76131</example>
+        /*
+        <example>76131</example>
+        */
         [DataMember(Name = "postalCode", EmitDefaultValue = true)]
         public string PostalCode { get; set; }
 
@@ -72,7 +76,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The name of a locality in the language spoken in that country or region, always transliterated to Latin. It can be the name of a city (e.g. &#39;Karlsruhe&#39;), a subdistrict (e.g. &#39;Durlach&#39;) or a combination of both separated with a blank (e.g. &#39;Karlsruhe Durlach&#39;).
         /// </summary>
         /// <value>The name of a locality in the language spoken in that country or region, always transliterated to Latin. It can be the name of a city (e.g. &#39;Karlsruhe&#39;), a subdistrict (e.g. &#39;Durlach&#39;) or a combination of both separated with a blank (e.g. &#39;Karlsruhe Durlach&#39;).</value>
-        /// <example>Karlsruhe</example>
+        /*
+        <example>Karlsruhe</example>
+        */
         [DataMember(Name = "locality", EmitDefaultValue = true)]
         public string Locality { get; set; }
 

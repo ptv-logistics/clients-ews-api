@@ -35,7 +35,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// Initializes a new instance of the <see cref="SuggestionsResponse" /> class.
         /// </summary>
         /// <param name="suggestions">The list of suggested locations sorted by **country**, **postalCode** and **locality**. Input localities matching a city name will be returned before those matching a subdistrict name..</param>
-        public SuggestionsResponse(List<SuggestedLocation> suggestions = default(List<SuggestedLocation>))
+        public SuggestionsResponse(List<SuggestedLocation> suggestions = default)
         {
             this.Suggestions = suggestions;
         }

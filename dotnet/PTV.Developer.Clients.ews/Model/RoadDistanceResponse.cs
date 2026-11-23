@@ -45,7 +45,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// <param name="destination">destination (required).</param>
         /// <param name="dataVersion">The version of the data by year. (required).</param>
         /// <param name="region">The region which was searched for the reference locations. (required).</param>
-        public RoadDistanceResponse(int? distance = default(int?), int? tollDistance = default(int?), ResponseLocation start = default(ResponseLocation), ResponseLocation destination = default(ResponseLocation), string dataVersion = default(string), string region = default(string))
+        public RoadDistanceResponse(int? distance = default, int? tollDistance = default, ResponseLocation start = default, ResponseLocation destination = default, string dataVersion = default, string region = default)
         {
             // to ensure "distance" is required (not null)
             if (distance == null)
@@ -84,7 +84,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The distance of the relation [m].
         /// </summary>
         /// <value>The distance of the relation [m].</value>
-        /// <example>1422</example>
+        /*
+        <example>1422</example>
+        */
         [DataMember(Name = "distance", IsRequired = true, EmitDefaultValue = true)]
         public int? Distance { get; set; }
 
@@ -92,7 +94,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The distance of toll roads of the relation [m], if requested.
         /// </summary>
         /// <value>The distance of toll roads of the relation [m], if requested.</value>
-        /// <example>985</example>
+        /*
+        <example>985</example>
+        */
         [DataMember(Name = "tollDistance", EmitDefaultValue = true)]
         public int? TollDistance { get; set; }
 

@@ -49,7 +49,7 @@ namespace PTV.Developer.Clients.ews.Model
         /// <param name="postalCode">The postal code, or zip-code, which is used by a postal authority of a country..</param>
         /// <param name="locality">The name of the city or district in the language spoken in that country or region, always transliterated to Latin. (required).</param>
         /// <param name="type">type (required).</param>
-        public SuggestedLocation(string country = default(string), string postalCode = default(string), string locality = default(string), LocationType type = default(LocationType))
+        public SuggestedLocation(string country = default, string postalCode = default, string locality = default, LocationType type = default)
         {
             // to ensure "country" is required (not null)
             if (country == null)
@@ -71,7 +71,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
         /// </summary>
         /// <value>The country represented by its code according to [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).</value>
-        /// <example>DE</example>
+        /*
+        <example>DE</example>
+        */
         [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
         public string Country { get; set; }
 
@@ -79,7 +81,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The postal code, or zip-code, which is used by a postal authority of a country.
         /// </summary>
         /// <value>The postal code, or zip-code, which is used by a postal authority of a country.</value>
-        /// <example>76131</example>
+        /*
+        <example>76131</example>
+        */
         [DataMember(Name = "postalCode", EmitDefaultValue = true)]
         public string PostalCode { get; set; }
 
@@ -87,7 +91,9 @@ namespace PTV.Developer.Clients.ews.Model
         /// The name of the city or district in the language spoken in that country or region, always transliterated to Latin.
         /// </summary>
         /// <value>The name of the city or district in the language spoken in that country or region, always transliterated to Latin.</value>
-        /// <example>Karlsruhe</example>
+        /*
+        <example>Karlsruhe</example>
+        */
         [DataMember(Name = "locality", IsRequired = true, EmitDefaultValue = true)]
         public string Locality { get; set; }
 
