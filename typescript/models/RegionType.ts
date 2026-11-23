@@ -49,3 +49,7 @@ export function RegionTypeToJSON(value?: RegionType | null): any {
     return value as any;
 }
 
+export function RegionTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): RegionType {
+    return value as RegionType;
+}
+

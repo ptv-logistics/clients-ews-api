@@ -12,36 +12,47 @@
  * Do not edit the class manually.
  */
 
-
 import * as runtime from '../runtime';
-import type {
-  DataVersionType,
-  ErrorResponse,
-  LocationType,
-  RegionType,
-  RequestLocation,
-  ResultsType,
-  RoadDistanceResponse,
-  SuggestionsResponse,
-} from '../models/index';
 import {
+    type DataVersionType,
     DataVersionTypeFromJSON,
     DataVersionTypeToJSON,
+} from '../models/DataVersionType';
+import {
+    type ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
+} from '../models/ErrorResponse';
+import {
+    type LocationType,
     LocationTypeFromJSON,
     LocationTypeToJSON,
+} from '../models/LocationType';
+import {
+    type RegionType,
     RegionTypeFromJSON,
     RegionTypeToJSON,
+} from '../models/RegionType';
+import {
+    type RequestLocation,
     RequestLocationFromJSON,
     RequestLocationToJSON,
+} from '../models/RequestLocation';
+import {
+    type ResultsType,
     ResultsTypeFromJSON,
     ResultsTypeToJSON,
+} from '../models/ResultsType';
+import {
+    type RoadDistanceResponse,
     RoadDistanceResponseFromJSON,
     RoadDistanceResponseToJSON,
+} from '../models/RoadDistanceResponse';
+import {
+    type SuggestionsResponse,
     SuggestionsResponseFromJSON,
     SuggestionsResponseToJSON,
-} from '../models/index';
+} from '../models/SuggestionsResponse';
 
 export interface GetRelationRequest {
     start?: RequestLocation;
@@ -67,9 +78,9 @@ export interface GetSuggestionsRequest {
 export class RoadDistancesApi extends runtime.BaseAPI {
 
     /**
-     * Gets the truck distance and additional information for a relation between two locations.
+     * Creates request options for getRelation without sending the request
      */
-    async getRelationRaw(requestParameters: GetRelationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoadDistanceResponse>> {
+    async getRelationRequestOpts(requestParameters: GetRelationRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['start'] != null) {
@@ -98,12 +109,23 @@ export class RoadDistancesApi extends runtime.BaseAPI {
             headerParameters["apiKey"] = await this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
         }
 
-        const response = await this.request({
-            path: `/relations`,
+
+        let urlPath = `/relations`;
+
+        return {
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Gets the truck distance and additional information for a relation between two locations.
+     */
+    async getRelationRaw(requestParameters: GetRelationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoadDistanceResponse>> {
+        const requestOptions = await this.getRelationRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RoadDistanceResponseFromJSON(jsonValue));
     }
@@ -117,9 +139,9 @@ export class RoadDistancesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Gets suggestions for a location. Provide at least two characters in **postalCode** or **locality** to obtain results.
+     * Creates request options for getSuggestions without sending the request
      */
-    async getSuggestionsRaw(requestParameters: GetSuggestionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuggestionsResponse>> {
+    async getSuggestionsRequestOpts(requestParameters: GetSuggestionsRequest): Promise<runtime.RequestOpts> {
         const queryParameters: any = {};
 
         if (requestParameters['country'] != null) {
@@ -156,12 +178,23 @@ export class RoadDistancesApi extends runtime.BaseAPI {
             headerParameters["apiKey"] = await this.configuration.apiKey("apiKey"); // apiKeyAuth authentication
         }
 
-        const response = await this.request({
-            path: `/suggestions`,
+
+        let urlPath = `/suggestions`;
+
+        return {
+            path: urlPath,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        }, initOverrides);
+        };
+    }
+
+    /**
+     * Gets suggestions for a location. Provide at least two characters in **postalCode** or **locality** to obtain results.
+     */
+    async getSuggestionsRaw(requestParameters: GetSuggestionsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SuggestionsResponse>> {
+        const requestOptions = await this.getSuggestionsRequestOpts(requestParameters);
+        const response = await this.request(requestOptions, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SuggestionsResponseFromJSON(jsonValue));
     }

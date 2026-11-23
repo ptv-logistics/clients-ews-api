@@ -47,3 +47,7 @@ export function ResultsTypeToJSON(value?: ResultsType | null): any {
     return value as any;
 }
 
+export function ResultsTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): ResultsType {
+    return value as ResultsType;
+}
+

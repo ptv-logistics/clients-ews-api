@@ -18,6 +18,7 @@ import {
     SuggestedLocationFromJSON,
     SuggestedLocationFromJSONTyped,
     SuggestedLocationToJSON,
+    SuggestedLocationToJSONTyped,
 } from './SuggestedLocation';
 
 /**
@@ -56,10 +57,15 @@ export function SuggestionsResponseFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function SuggestionsResponseToJSON(value?: SuggestionsResponse | null): any {
+export function SuggestionsResponseToJSON(json: any): SuggestionsResponse {
+    return SuggestionsResponseToJSONTyped(json, false);
+}
+
+export function SuggestionsResponseToJSONTyped(value?: SuggestionsResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'suggestions': value['suggestions'] == null ? undefined : ((value['suggestions'] as Array<any>).map(SuggestedLocationToJSON)),

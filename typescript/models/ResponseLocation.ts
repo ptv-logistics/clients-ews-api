@@ -18,6 +18,7 @@ import {
     LocationTypeFromJSON,
     LocationTypeFromJSONTyped,
     LocationTypeToJSON,
+    LocationTypeToJSONTyped,
 } from './LocationType';
 
 /**
@@ -95,10 +96,15 @@ export function ResponseLocationFromJSONTyped(json: any, ignoreDiscriminator: bo
     };
 }
 
-export function ResponseLocationToJSON(value?: ResponseLocation | null): any {
+export function ResponseLocationToJSON(json: any): ResponseLocation {
+    return ResponseLocationToJSONTyped(json, false);
+}
+
+export function ResponseLocationToJSONTyped(value?: ResponseLocation | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'country': value['country'],

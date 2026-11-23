@@ -58,3 +58,7 @@ export function DataVersionTypeToJSON(value?: DataVersionType | null): any {
     return value as any;
 }
 
+export function DataVersionTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): DataVersionType {
+    return value as DataVersionType;
+}
+

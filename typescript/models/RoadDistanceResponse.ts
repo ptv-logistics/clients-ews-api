@@ -18,6 +18,7 @@ import {
     ResponseLocationFromJSON,
     ResponseLocationFromJSONTyped,
     ResponseLocationToJSON,
+    ResponseLocationToJSONTyped,
 } from './ResponseLocation';
 
 /**
@@ -95,10 +96,15 @@ export function RoadDistanceResponseFromJSONTyped(json: any, ignoreDiscriminator
     };
 }
 
-export function RoadDistanceResponseToJSON(value?: RoadDistanceResponse | null): any {
+export function RoadDistanceResponseToJSON(json: any): RoadDistanceResponse {
+    return RoadDistanceResponseToJSONTyped(json, false);
+}
+
+export function RoadDistanceResponseToJSONTyped(value?: RoadDistanceResponse | null, ignoreDiscriminator: boolean = false): any {
     if (value == null) {
         return value;
     }
+
     return {
         
         'distance': value['distance'],
